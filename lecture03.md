@@ -15,6 +15,7 @@ RDSの停止→アクセス不可
 > ```sudo service mysqld stop```  
 > ```sudo service mysqld start```  
 > ```sudo service mysqld status```  
+
 ![mysql01](img01/lecture01-3.png)  
 ![mysql02](img01/lecture01-4.png)  
 ## 4.Rails構成管理ツール

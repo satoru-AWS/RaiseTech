@@ -153,7 +153,7 @@ region: ap-northeast-1
 buclet: バケット名  
 access_key_id: <%=EMV['AWS_ACCESS_KEY_ID'] %>  
 secret_access_key: <%=EMV['AWS_SECRET_ACCESS_KEY'] %>  
->[!note warn]  
+>[!WARNING]  
 >アクセスキーとシークレットアクセスキーはセキュリティ上、環境変数を設定すること  
 >export AWS_ACCESS_KEY_ID="作成したアクセスキー"  
 >export AWS_SECRET_ACCESS_KEY="作成したシークレットアクセスキー"  

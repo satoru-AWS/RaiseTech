@@ -70,7 +70,7 @@ rails s -b 0.0.0.0
 # ブラウザでアクセス  
 EC2のパブリックID：3000
 ```  
-![組み込み](img1/lecture05-15.png)  
+![組み込み](img01/lecture05-15.png)  
 
 ## Unix Socketを使った動作確認  
 puma設定ファイル→config/puma.rb  
@@ -78,7 +78,7 @@ Unixソケットのバインドでソケットファイルを指定→pumaを実
 ```  
 curl --unix-socket /home/ec2-user/raisetech-live8-sample-app/tmp/sockets/puma.sock http://localhost/  
 ```  
-![動作確認](img1/lecture05-4.png)  
+![動作確認](img01/lecture05-4.png)  
 
 ## Nginxの動作確認  
 ```  
@@ -103,7 +103,7 @@ sudo tail /var/log/nginx/error.log
 ```
 →nginxの起動を確認：welcome to nginx!  
 
-![Nginx](img1/lecture05-5.png)  
+![Nginx](img01/lecture05-5.png)  
 
 ## puma,Nginx,Unix Socketでデプロイ  
 Nginxをリバースプロキシとしてpumaの前に設置して、Unixソケットを経由してNginxとpumaが通信を行えるようにする  
@@ -119,13 +119,13 @@ successfullでOK
 
 Nginxとpumaを起動  
 
-![nginx設定ファイル](img1/lecture05-8.png)  
+![nginx設定ファイル](img01/lecture05-8.png)  
 
-![rails.conf](img1/lecture05-9.png)  
+![rails.conf](img01/lecture05-9.png)  
 
-![起動](img1/lecture05-6.png)  
+![起動](img01/lecture05-6.png)  
 
-![デプロイ](img1/lecture05-7.png)  
+![デプロイ](img01/lecture05-7.png)  
 
 ## ALBの追加  
 1. ターゲットグループとセキュリティグループを作成  
@@ -135,9 +135,9 @@ Nginxとpumaを起動
  `config.hosts << "ALBのDNS名"`   
 5. Nginxとpumaを起動  
 6. ALBのDNS名でブラウザを確認  
-![unhealty](img1/lecture05-11.png)  
-![healty](img1/lecture05-12.png)  
-![ALB](img1/lecture05-10.png)  
+![unhealty](img01/lecture05-11.png)  
+![healty](img01/lecture05-12.png)  
+![ALB](img01/lecture05-10.png)  
 
 ## S3の追加  
 1. バケットを作成  
@@ -160,9 +160,9 @@ secret_access_key: <%=EMV['AWS_SECRET_ACCESS_KEY'] %>
 >source ~/.bashrc  
 
 IAMポリシー  
-![S3IAMポリシー](img1/lecture05-16.png)  
+![S3IAMポリシー](img01/lecture05-16.png)  
  
-![S3](img1/lecture05-13.png)  
+![S3](img01/lecture05-13.png)  
 
 ## 構成図  
-![構成図](img1/lecture05-14.png)  
+![構成図](img01/lecture05-14.png)  

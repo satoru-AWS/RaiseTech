@@ -165,4 +165,4 @@ IAMポリシー
 ![S3](img01/lecture05-13.png)  
 
 ## 構成図  
-![構成図](img01/lecture05-14.png)  
+![構成図](img01/lecture05-17.png)  

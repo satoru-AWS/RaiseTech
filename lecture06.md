@@ -31,7 +31,7 @@
 
 ### パターン２:ALBのHealthyHostCountを対象  
 #### 設定  
-![HealthyHostCount設定1](img2/lecture06-7.png)  
+![HealthyHostCount設定1](img02/lecture06-7.png)  
 * ステータスHealthy状態のターゲットグループの数を対象 
 * 期間１分間で生成されるデータポイントが1回でしきい値（個数0以下）を超えるとアラーム通知  
 * 欠落データポイントは「不良」とされ、しきい値超過として扱う  

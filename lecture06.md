@@ -1,6 +1,6 @@
 # 課題６  
 ## CloudTrailの使用  
-イベント：EC2インスタンスの起動  
+イベント→EC2インスタンスの起動  
 イメント名→StartInstances  
 誰が操作したか→UserName  
 何が変更されたか→AWS::EC2::Instance  
@@ -50,7 +50,7 @@
 ![アラーム](img02/lecture06-9.png)  
 
 ## AWS利用料の見積り  
-[AWS利用見積](https://calculator.aws/#/estimate?id=daa5a7e1e005cbb48b765c06c28c058582a84fc1)  
+[AWS利用見積](https://calculator.aws/#/estimate?id=ce1d74bdf7eb4448c1fa37f88492d2ac99425a8a)  
 
 ## 現在の利用料  
 * 11月の利用料  

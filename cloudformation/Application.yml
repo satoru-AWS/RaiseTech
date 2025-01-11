@@ -174,4 +174,3 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub ${BaseName}-s3
-          

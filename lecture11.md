@@ -16,7 +16,7 @@ gem install serverspec
 * serverspecディレクトリを作成  
 * 作業用ディレクトに移動  
 ### テスト実行用のファイルを作成  
-`serverspec-init`  
+```serverspec-init```  
 serverspec/spec/localhost/sample_spec.rbが作成される  
 ![ファイル作成](img02/lecture11-1.png)  
 

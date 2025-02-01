@@ -24,6 +24,11 @@ Parameters:
     MinLength: 8
     AllowedPattern: "[a-zA-Z0-9]*$"
 
+  DBAvailabilityZone:
+    Description: RDS AvailabilityZone 
+    Type: String
+    Default: ap-northeast-1a
+
 Resources: 
 
 # IAMロール
@@ -88,7 +93,7 @@ Resources:
     Properties:
       AllocatedStorage: 20
       DBInstanceClass: db.t4g.micro
-      AvailabilityZone: ap-northeast-1a 
+      AvailabilityZone: !Ref DBAvailabilityZone
       DBSubnetGroupName: !Ref SubnetGroup
       Engine: mysql
       EngineVersion: 8.0.39

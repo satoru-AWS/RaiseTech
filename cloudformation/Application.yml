@@ -87,6 +87,14 @@ Resources:
         - Key: Name
           Value: !Sub ${BaseName}-subnetgroup
 
+# Secret Maneger(RDS)
+  RDSSecret:
+    Type: "AWS::SecretsManager::Secret"
+    Properties:
+      Name: "MyRDSSecret"
+      Description: "RDS password for my RDS instance"
+      SecretString: !Sub '{"username": "${DBMasterUserName}", "password": "${DBMasterUserPassword}"}'
+
 # RDS(MySQL)
   RDS:
     Type: AWS::RDS::DBInstance
@@ -97,8 +105,8 @@ Resources:
       DBSubnetGroupName: !Ref SubnetGroup
       Engine: mysql
       EngineVersion: 8.0.39
-      MasterUsername: !Ref DBMasterUserName
-      MasterUserPassword: !Ref DBMasterUserPassword
+      MasterUsername: !Sub '{{resolve:secretsmanager:MyRDSSecret:SecretString:username}}'
+      MasterUserPassword: !Sub '{{resolve:secretsmanager:MyRDSSecret:SecretString:password}}'
       MultiAZ: false
       StorageType: gp2
       VPCSecurityGroups:

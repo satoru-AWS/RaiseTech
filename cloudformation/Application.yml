@@ -11,19 +11,6 @@ Parameters:
     Description: The EC2 KeyPair to allow SSH access to the instance 
     Type: String
 
-  DBMasterUserName:
-    Description: RDS Master User Name
-    Type: String
-    MaxLength: 16
-    AllowedPattern: "[a-zA-Z0-9]*$"
-  
-  DBMasterUserPassword:
-    Description: RDS Master User Password
-    Type: String
-    NoEcho: true
-    MinLength: 8
-    AllowedPattern: "[a-zA-Z0-9]*$"
-
   DBAvailabilityZone:
     Description: RDS AvailabilityZone 
     Type: String
@@ -93,7 +80,11 @@ Resources:
     Properties:
       Name: "MyRDSSecret"
       Description: "RDS password for my RDS instance"
-      SecretString: !Sub '{"username": "${DBMasterUserName}", "password": "${DBMasterUserPassword}"}'
+      GenerateSecretString:
+        SecretStringTemplate: '{"username": "admin"}'
+        GenerateStringKey: "password"
+        PasswordLength: 16
+        ExcludeCharacters: '"@/\'
 
 # RDS(MySQL)
   RDS:

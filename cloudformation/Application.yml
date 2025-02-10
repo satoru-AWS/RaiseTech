@@ -96,8 +96,8 @@ Resources:
       DBSubnetGroupName: !Ref SubnetGroup
       Engine: mysql
       EngineVersion: 8.0.39
-      MasterUsername: !Sub '{{resolve:secretsmanager:MyRDSSecret:SecretString:username}}'
-      MasterUserPassword: !Sub '{{resolve:secretsmanager:MyRDSSecret:SecretString:password}}'
+      MasterUsername: '{{resolve:secretsmanager:MyRDSSecret:SecretString:username}}'
+      MasterUserPassword: '{{resolve:secretsmanager:MyRDSSecret:SecretString:password}}'
       MultiAZ: false
       StorageType: gp2
       VPCSecurityGroups:

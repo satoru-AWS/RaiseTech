@@ -13,6 +13,16 @@ Parameters:
     Type: String
     Default: raisetech
 
+  Subnet1a:
+    Description: Subnet1a AvailabilityZone
+    Type: String
+    Default: ap-northeast-1a
+
+  Subnet1c:
+    Description: Subnet1c AvailabilityZone
+    Type: String
+    Default: ap-northeast-1c
+
 Resources: 
 
 # VPC
@@ -29,7 +39,7 @@ Resources:
   Subnet1aPv:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: ap-northeast-1a
+      AvailabilityZone: !Ref Subnet1a
       VpcId: !Ref VPC
       CidrBlock: 10.0.2.0/24
       Tags:
@@ -39,7 +49,7 @@ Resources:
   Subnet1cPv:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: ap-northeast-1c
+      AvailabilityZone: !Ref Subnet1c
       VpcId: !Ref VPC
       CidrBlock: 10.0.4.0/24
       Tags:
@@ -49,7 +59,7 @@ Resources:
   Subnet1aPb:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: ap-northeast-1a
+      AvailabilityZone: !Ref Subnet1a
       VpcId: !Ref VPC
       CidrBlock: 10.0.1.0/24
       Tags:
@@ -59,7 +69,7 @@ Resources:
   Subnet1cPb:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: ap-northeast-1c
+      AvailabilityZone: !Ref Subnet1c
       VpcId: !Ref VPC
       CidrBlock: 10.0.3.0/24
       Tags:

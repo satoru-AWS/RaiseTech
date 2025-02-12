@@ -11,18 +11,10 @@ Parameters:
     Description: The EC2 KeyPair to allow SSH access to the instance 
     Type: String
 
-  DBMasterUserName:
-    Description: RDS Master User Name
+  DBAvailabilityZone:
+    Description: RDS AvailabilityZone 
     Type: String
-    MaxLength: 16
-    AllowedPattern: "[a-zA-Z0-9]*$"
-  
-  DBMasterUserPassword:
-    Description: RDS Master User Password
-    Type: String
-    NoEcho: true
-    MinLength: 8
-    AllowedPattern: "[a-zA-Z0-9]*$"
+    Default: ap-northeast-1a
 
 Resources: 
 
@@ -82,18 +74,30 @@ Resources:
         - Key: Name
           Value: !Sub ${BaseName}-subnetgroup
 
+# Secret Maneger(RDS)
+  RDSSecret:
+    Type: "AWS::SecretsManager::Secret"
+    Properties:
+      Name: "MyRDSSecret"
+      Description: "RDS password for my RDS instance"
+      GenerateSecretString:
+        SecretStringTemplate: '{"username": "admin"}'
+        GenerateStringKey: "password"
+        PasswordLength: 16
+        ExcludeCharacters: '"@/\'
+
 # RDS(MySQL)
   RDS:
     Type: AWS::RDS::DBInstance
     Properties:
       AllocatedStorage: 20
       DBInstanceClass: db.t4g.micro
-      AvailabilityZone: ap-northeast-1a 
+      AvailabilityZone: !Ref DBAvailabilityZone
       DBSubnetGroupName: !Ref SubnetGroup
       Engine: mysql
       EngineVersion: 8.0.39
-      MasterUsername: !Ref DBMasterUserName
-      MasterUserPassword: !Ref DBMasterUserPassword
+      MasterUsername: '{{resolve:secretsmanager:MyRDSSecret:SecretString:username}}'
+      MasterUserPassword: '{{resolve:secretsmanager:MyRDSSecret:SecretString:password}}'
       MultiAZ: false
       StorageType: gp2
       VPCSecurityGroups:

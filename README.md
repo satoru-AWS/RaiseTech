@@ -20,7 +20,7 @@ Circleciで以下項目を完全自動化デプロイ
     GitHubにプッシュされると、CircleCIのワークフローが自動的に開始されます。まず、`cfn-lint`でCloudFormationテンプレートの構文をチェックし、問題がなければCloudFormationスタックを作成してAWSインフラを構築します。次にAnsibleを実行して、EC2インスタンス上にRuby on Railsの実行環境をセットアップし、アプリケーションをデプロイします。最後にServerspecでサーバーの状態が期待通りであることをテストし、デプロイの正当性を保証します。  
   
 * 構成図  
-  * ![構成図](img2/lecture14.drawio.png)  
+  * ![構成図](img02/lecture14.drawio.png)  
 
 ---
 

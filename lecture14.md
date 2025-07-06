@@ -6,6 +6,13 @@
   
 ![AWS構成図](img02/lecture14.drawio.png)  
   
+**AWSアーキテクチャガイドライン**  
+  
+構成図の作成にあたり、以下の公式ガイドラインを参考にしています。  
+最新のアイコンやルールはリンクから確認できます。  
+  
+[AWS Architecture](https://aws.amazon.com/jp/architecture/icons/)  
+  
 ### リポジトリのREADME  
   
 リポジトリのREADMEは[こちら](README.md)  
